@@ -36,8 +36,9 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = []
 
 CORS_ALLOWED_ORIGINS = [
+    ".onrender.com",
     "http://localhost:5173",
-    "https://portfolio-amar8.vercel.app/",
+    "https://portfolio-amar8.vercel.app",
 ]
 
 # Application definition
