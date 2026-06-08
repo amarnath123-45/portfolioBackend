@@ -44,6 +44,20 @@ CSRF_TRUSTED_ORIGINS = [
     "https://portfolio-amar8.vercel.app",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://portfolio-amar8.vercel.app",
+    "http://localhost:5173",  # Recommended for local testing
+]
+# To ensure the trailing slash in your React 'fetch' call works:
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
