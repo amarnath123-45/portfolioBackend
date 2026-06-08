@@ -7,11 +7,18 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from .models import Contact
 from .serializers import ContactSerializer
-
+import resend
+from django.conf import settings
 
 def send_contact_email(name, email, subject, message):
-    print("EMAIL FUNCTION CALLED")
-    email_body = f"""
+    try:
+        resend.api_key = settings.RESEND_API_KEY
+
+        response = resend.Emails.send({
+            "from": "PortfolioContact@resend.dev",
+            "to": ["amar.dash989@gmail.com"],
+            "subject": f"Portfolio Contact - {subject}",
+            "text": f"""
 Name: {name}
 Email: {email}
 
@@ -20,15 +27,13 @@ Subject: {subject}
 Message:
 {message}
 """
-    send_mail(
-        subject=f"Portfolio Contact - {subject}",
-        message=email_body,
-        from_email=None,
-        recipient_list=["amar7102k3@gmail.com"],
-        fail_silently=False, 
-    )
-    
-    print("EMAIL SENT")
+        })
+
+        print("RESEND RESPONSE:", response)
+
+    except Exception as e:
+        print("RESEND ERROR:", str(e))
+        raise
 
 import socket
 from django.http import JsonResponse
