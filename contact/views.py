@@ -24,7 +24,7 @@ Message:
         message=email_body,
         from_email=None,
         recipient_list=["amar7102k3@gmail.com"],
-        fail_silently=True, 
+        fail_silently=False, 
     )
 
 
