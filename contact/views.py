@@ -10,6 +10,7 @@ from .serializers import ContactSerializer
 
 
 def send_contact_email(name, email, subject, message):
+    print("EMAIL FUNCTION CALLED")
     email_body = f"""
 Name: {name}
 Email: {email}
@@ -26,6 +27,8 @@ Message:
         recipient_list=["amar7102k3@gmail.com"],
         fail_silently=False, 
     )
+    
+    print("EMAIL SENT")
 
 
 class ContactView(APIView):
