@@ -39,6 +39,7 @@ CORS_ALLOWED_ORIGINS = [
 
     "http://localhost:5173",
     "https://portfolio-amar8.vercel.app",
+    "https://portfoliobackend-owcm.onrender.com"
 ]
 
 # Application definition
