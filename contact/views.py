@@ -30,6 +30,15 @@ Message:
     
     print("EMAIL SENT")
 
+import socket
+from django.http import JsonResponse
+
+def test_smtp(request):
+    try:
+        socket.create_connection(("smtp.gmail.com", 587), timeout=10)
+        return JsonResponse({"status": "connected"})
+    except Exception as e:
+        return JsonResponse({"error": str(e)})
 
 class ContactView(APIView):
     permission_classes = [AllowAny]
