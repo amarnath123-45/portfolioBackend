@@ -33,13 +33,15 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
-CORS_ALLOWED_ORIGINS = [
-
-    "http://localhost:5173",
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
     "https://portfolio-amar8.vercel.app",
-    "https://portfoliobackend-owcm.onrender.com"
 ]
 
 # Application definition
